@@ -11,7 +11,7 @@ Imports:
     icesVocab
 Description: A collection of functions useful for processing ICES data and making ICES shiny apps.
 License: GPL (>= 2)
-URL: https://github.com/ices-tools-dev/icesUtils
+URL: https://github.com/ices-tools-dev/icesUtils, https://ices-tools-prod.r-universe.dev/icesUtils
 BugReports: https://github.com/ices-tools-dev/icesUtils/issues
 RoxygenNote: 7.3.3
 Encoding: UTF-8
