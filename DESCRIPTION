@@ -1,0 +1,18 @@
+Package: icesUtils
+Version: 0.0.1
+Title: Functions for processing ICES data and producing ICES shiny applications
+Authors@R: c(person("Colin", "Millar", role=c("aut","cre"), email="colin.millar@ices.dk"),
+             person("Luca", "Lamoni", role="aut"),
+             person("Neil", "Maginnes", role="aut"))
+Depends: R (>= 4.3)
+Imports:
+    icesSAG,
+    icesSD,
+    icesVocab
+Description: A collection of functions useful for processing ICES data and making ICES shiny apps.
+License: file LICENSE
+URL: https://github.com/ices-tools-dev/icesUtils
+BugReports: https://github.com/ices-tools-dev/icesUtils/issues
+RoxygenNote: 7.3.3
+Encoding: UTF-8
+Language: en-GB
