@@ -12,6 +12,15 @@
 #' @return A character string
 #' @importFrom dplyr filter pull
 #' @export
+#' @examples
+#' greetings <- data.frame(section = c("welcome", "goodbye"), 
+#' text = c("Hello world", "Thanks for stopping by"))
+#' content <- data.frame(section = "help", text = "Use the function as shown here")
+#' texts <- list(greetings=greetings, content = content)
+#' select_text(list_of_texts = texts, "greetings", "welcome")
+#' select_text(list_of_texts = texts, "content", "help")
+#' select_text(list_of_texts = texts, "greetings", "goodbye")
+#' 
 select_text <- function(list_of_texts, tab, section, ecoregion = NULL) {
   
   # Subset by ecoregion if provided
@@ -35,7 +44,7 @@ select_text <- function(list_of_texts, tab, section, ecoregion = NULL) {
   }
   
   # Filter and return text
-  filtered_df <- filter(df, section == section) 
+  filtered_df <- filter(df, .data$section == .env$section) 
   out <- pull(filtered_df, .data$text)
   
   if (length(out) == 0) {

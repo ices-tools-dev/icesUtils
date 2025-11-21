@@ -22,6 +22,16 @@ A character string
 display_text´ subsets a list of dataframes and extracts the relevant section of text for tab and section
 If ecoregion is supplied, accepts a named list of lists, and filters the top level list by ecoregion name.
 }
+\examples{
+greetings <- data.frame(section = c("welcome", "goodbye"), 
+text = c("Hello world", "Thanks for stopping by"))
+content <- data.frame(section = "help", text = "Use the function as shown here")
+texts <- list(greetings=greetings, content = content)
+select_text(list_of_texts = texts, "greetings", "welcome")
+select_text(list_of_texts = texts, "content", "help")
+select_text(list_of_texts = texts, "greetings", "goodbye")
+
+}
 \author{
 Neil Maginnis
 }

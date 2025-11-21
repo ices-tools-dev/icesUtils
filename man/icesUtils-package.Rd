@@ -36,7 +36,7 @@ Useful links:
 Authors:
 \itemize{
   \item Luca Lamoni
-  \item Neil Maginnes
+  \item Neil Maginnis
 }
 
 }
