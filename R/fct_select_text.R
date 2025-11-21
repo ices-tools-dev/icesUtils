@@ -8,6 +8,7 @@
 #'
 #' @return A character string
 #' @importFrom dplyr filter pull
+#' @export
 #'
 #' @noRd
 
