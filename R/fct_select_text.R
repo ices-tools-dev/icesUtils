@@ -1,4 +1,6 @@
-#' @description ´display_text´ subsets a list of dataframes and extracts the relevant section of text for tab and section
+#'´Get text to display from list of dfs.
+#'
+#' display_text´ subsets a list of dataframes and extracts the relevant section of text for tab and section
 #' If ecoregion is supplied, accepts a named list of lists, and filters the top level list by ecoregion name.
 #'
 #' @param list_of_texts a list of dataframes each containing 'section' and 'text' columns
@@ -6,12 +8,10 @@
 #' @param section a character vector indicating which row to extract
 #' @param ecoregion optional argument for top level sorting
 #'
+#' @author Neil Maginnis
 #' @return A character string
 #' @importFrom dplyr filter pull
 #' @export
-#'
-#' @noRd
-
 select_text <- function(list_of_texts, tab, section, ecoregion = NULL) {
   
   # Subset by ecoregion if provided
@@ -36,7 +36,7 @@ select_text <- function(list_of_texts, tab, section, ecoregion = NULL) {
   
   # Filter and return text
   filtered_df <- filter(df, section == section) 
-  out <- pull(filtered_df, text)
+  out <- pull(filtered_df, .data$text)
   
   if (length(out) == 0) {
     warning("No text found for section '", section, "'. Returning NULL.")

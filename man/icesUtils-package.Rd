@@ -25,6 +25,7 @@ ICES Stock Assessment Graphs web services:
 Useful links:
 \itemize{
   \item \url{https://github.com/ices-tools-dev/icesUtils}
+  \item \url{https://ices-tools-prod.r-universe.dev/icesUtils}
   \item Report bugs at \url{https://github.com/ices-tools-dev/icesUtils/issues}
 }
 

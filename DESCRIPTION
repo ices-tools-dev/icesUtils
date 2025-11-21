@@ -6,6 +6,7 @@ Authors@R: c(person("Colin", "Millar", role=c("aut","cre"), email="colin.millar@
              person("Neil", "Maginnes", role="aut"))
 Depends: R (>= 4.3)
 Imports:
+    dplyr,
     icesSAG,
     icesSD,
     icesVocab
