@@ -1,12 +1,12 @@
 #'´Get text to display from list of dfs.
 #'
 #' display_text´ subsets a list of dataframes and extracts the relevant section of text for tab and section
-#' If ecoregion is supplied, accepts a named list of lists, and filters the top level list by ecoregion name.
+#' If top_level is supplied, accepts a named list of lists, and filters the top level list by top_level name.
 #'
 #' @param list_of_texts a list of dataframes each containing 'section' and 'text' columns
 #' @param tab a character vector - the name of a list entry
 #' @param section a character vector indicating which row to extract
-#' @param ecoregion optional argument for top level sorting
+#' @param top_level optional argument for top level sorting
 #'
 #' @author Neil Maginnis
 #' @return A character string
@@ -21,14 +21,14 @@
 #' select_text(list_of_texts = texts, "content", "help")
 #' select_text(list_of_texts = texts, "greetings", "goodbye")
 #' 
-select_text <- function(list_of_texts, tab, section, ecoregion = NULL) {
+select_text <- function(list_of_texts, tab, section, top_level = NULL) {
   
-  # Subset by ecoregion if provided
-  if (!is.null(ecoregion)) {
-    if (!ecoregion %in% names(list_of_texts)) {
-      stop("Ecoregion ", ecoregion, " not found in list_of_texts.")
+  # Subset by top_level if provided
+  if (!is.null(top_level)) {
+    if (!top_level %in% names(list_of_texts)) {
+      stop("top_level ", top_level, " not found in list_of_texts.")
     }
-    list_of_texts <- list_of_texts[[ecoregion]]
+    list_of_texts <- list_of_texts[[top_level]]
   }
   
   # Check that the tab exists

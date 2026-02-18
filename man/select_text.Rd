@@ -4,7 +4,7 @@
 \alias{select_text}
 \title{´Get text to display from list of dfs.}
 \usage{
-select_text(list_of_texts, tab, section, ecoregion = NULL)
+select_text(list_of_texts, tab, section, top_level = NULL)
 }
 \arguments{
 \item{list_of_texts}{a list of dataframes each containing 'section' and 'text' columns}
@@ -13,14 +13,14 @@ select_text(list_of_texts, tab, section, ecoregion = NULL)
 
 \item{section}{a character vector indicating which row to extract}
 
-\item{ecoregion}{optional argument for top level sorting}
+\item{top_level}{optional argument for top level sorting}
 }
 \value{
 A character string
 }
 \description{
 display_text´ subsets a list of dataframes and extracts the relevant section of text for tab and section
-If ecoregion is supplied, accepts a named list of lists, and filters the top level list by ecoregion name.
+If top_level is supplied, accepts a named list of lists, and filters the top level list by top_level name.
 }
 \examples{
 greetings <- data.frame(section = c("welcome", "goodbye"), 
