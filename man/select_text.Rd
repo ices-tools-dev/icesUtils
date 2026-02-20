@@ -2,7 +2,7 @@
 % Please edit documentation in R/fct_select_text.R
 \name{select_text}
 \alias{select_text}
-\title{´Get text to display from list of dfs.}
+\title{Get text to display from list of dfs.}
 \usage{
 select_text(list_of_texts, tab, section, top_level = NULL)
 }
@@ -31,6 +31,11 @@ select_text(list_of_texts = texts, "greetings", "welcome")
 select_text(list_of_texts = texts, "content", "help")
 select_text(list_of_texts = texts, "greetings", "goodbye")
 
+}
+\seealso{
+\code{\link[icesUtils]{prepare_text_from_excel}} is a function that converts texts provided via an excel file into a structure that \code{select_text} can work with.
+ 
+ \code{\link[icesUtils]{prepare_nested_text_lists_from_excel}} converts texts in multiple files into a hierarchical structure that \code{select_text} can work with.
 }
 \author{
 Neil Maginnis

@@ -1,4 +1,4 @@
-#'´Get text to display from list of dfs.
+#' Get text to display from list of dfs.
 #'
 #' display_text´ subsets a list of dataframes and extracts the relevant section of text for tab and section
 #' If top_level is supplied, accepts a named list of lists, and filters the top level list by top_level name.
@@ -12,6 +12,11 @@
 #' @return A character string
 #' @importFrom dplyr filter pull
 #' @export
+#' @seealso 
+#' 
+#'  \code{\link[icesUtils]{prepare_text_from_excel}} is a function that converts texts provided via an excel file into a structure that \code{select_text} can work with.
+#'  
+#'  \code{\link[icesUtils]{prepare_nested_text_lists_from_excel}} converts texts in multiple files into a hierarchical structure that \code{select_text} can work with.
 #' @examples
 #' greetings <- data.frame(section = c("welcome", "goodbye"), 
 #' text = c("Hello world", "Thanks for stopping by"))
@@ -22,7 +27,7 @@
 #' select_text(list_of_texts = texts, "greetings", "goodbye")
 #' 
 select_text <- function(list_of_texts, tab, section, top_level = NULL) {
-  
+
   # Subset by top_level if provided
   if (!is.null(top_level)) {
     if (!top_level %in% names(list_of_texts)) {
