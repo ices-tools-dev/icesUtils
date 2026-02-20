@@ -12,7 +12,7 @@
 #' @returns a list of dataframes
 #' @export
 #'
-#' @importFrom readxl read_xlsx
+#' @importFrom readxl read_excel excel_sheets
 #' @seealso 
 #'  \code{\link[icesUtils]{prepare_nested_text_lists_from_excel}} converts texts
 #'   in multiple files into a hierarchical structure that \code{select_text} can work with.
