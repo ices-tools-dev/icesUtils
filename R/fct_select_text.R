@@ -10,7 +10,6 @@
 #'
 #' @author Neil Maginnis
 #' @return A character string
-#' @importFrom dplyr filter pull
 #' @export
 #' @seealso 
 #' 
@@ -49,8 +48,8 @@ select_text <- function(list_of_texts, tab, section, top_level = NULL) {
   }
   
   # Filter and return text
-  filtered_df <- filter(df, .data$section == .env$section) 
-  out <- pull(filtered_df, .data$text)
+  filtered_df <- df[df$section == section,]
+  out <- filtered_df$text
   
   if (length(out) == 0) {
     warning("No text found for section '", section, "'. Returning NULL.")
