@@ -1,5 +1,5 @@
 Package: icesUtils
-Version: 0.0.2
+Version: 0.1.0
 Title: Functions for processing ICES data and producing ICES shiny applications
 Authors@R: c(person("Colin", "Millar", role=c("aut","cre"), email="colin.millar@ices.dk"),
              person("Luca", "Lamoni", role="aut"),
