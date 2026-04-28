@@ -6,7 +6,6 @@
 #' @param list_of_texts a list of dataframes each containing 'section' and 'text' columns
 #' @param tab a character vector - the name of a list entry
 #' @param section a character vector indicating which row to extract
-#' @param top_level optional argument for top level sorting
 #'
 #' @author Neil Maginnis
 #' @return A character string
@@ -25,36 +24,27 @@
 #' select_text(list_of_texts = texts, "content", "help")
 #' select_text(list_of_texts = texts, "greetings", "goodbye")
 #' 
-select_text <- function(list_of_texts, tab, section, top_level = NULL) {
+select_text <- function(list_of_texts, tab, section = NULL) {
 
-  # Subset by top_level if provided
-  if (!is.null(top_level)) {
-    if (!top_level %in% names(list_of_texts)) {
-      stop("top_level ", top_level, " not found in list_of_texts.")
-    }
-    list_of_texts <- list_of_texts[[top_level]]
+  if (is.null(list_of_texts[[tab]])) {
+    stop("Tab '", tab, "' not found.")
   }
-  
-  # Check that the tab exists
-  if (!tab %in% names(list_of_texts)) {
-    stop("Tab '", tab, "' not found in list_of_texts.")
-  }
-  
+
   df <- list_of_texts[[tab]]
-  
-  # Validate structure
-  if (!all(c("section", "text") %in% names(df))) {
-    stop("Data frame in tab '", tab, "' must contain 'section' and 'text' columns.")
+
+  # Case 1: structured text table
+  if ("section" %in% names(df) && "text" %in% names(df)) {
+
+    if (is.null(section)) {
+      stop("Section must be provided for tab '", tab, "'.")
+    }
+
+    out <- df[df$section == section, "text", drop = TRUE]
+
+    if (length(out) == 0) return("")
+    return(as.character(out))
   }
-  
-  # Filter and return text
-  filtered_df <- df[df$section == section,]
-  out <- filtered_df$text
-  
-  if (length(out) == 0) {
-    warning("No text found for section '", section, "'. Returning NULL.")
-    return(NULL)
-  }
-  
-  out
+
+  # Case 2: non-text table (e.g. glossary)
+  return(df)
 }

@@ -4,7 +4,7 @@
 \alias{select_text}
 \title{Get text to display from list of dfs.}
 \usage{
-select_text(list_of_texts, tab, section, top_level = NULL)
+select_text(list_of_texts, tab, section = NULL)
 }
 \arguments{
 \item{list_of_texts}{a list of dataframes each containing 'section' and 'text' columns}
@@ -12,8 +12,6 @@ select_text(list_of_texts, tab, section, top_level = NULL)
 \item{tab}{a character vector - the name of a list entry}
 
 \item{section}{a character vector indicating which row to extract}
-
-\item{top_level}{optional argument for top level sorting}
 }
 \value{
 A character string
